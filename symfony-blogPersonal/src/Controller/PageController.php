@@ -26,6 +26,7 @@ class PageController extends AbstractController
         return $this->render('page/index.html.twig', ['categories' => $categories]);
     }
     
+    
 
 
 #[Route('/about', name: 'about')]
