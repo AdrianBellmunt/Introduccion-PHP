@@ -177,6 +177,7 @@
     </div>
     <!-- Footer End -->
 
+{% include('partials/_infoProduct.html.twig') %}
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -188,9 +189,12 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+   
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+
 </body>
 
 </html>
