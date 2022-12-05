@@ -42,4 +42,64 @@ class CartController extends AbstractController
         return new JsonResponse($data, Response::HTTP_OK);
 
     }
+    #[Route('/', name: 'app_cart')]
+    public function index(): Response
+    {
+        $products = $this->repository->getFromCart($this->cart);
+        //hay que añadir la cantidad de cada producto
+        $items = [];
+        $totalCart = 0;
+        foreach($products as $product){
+            $item = [
+                "id"=> $product->getId(),
+                "name" => $product->getName(),
+                "price" => $product->getPrice(),
+                "photo" => $product->getPhoto(),
+                "quantity" => $this->cart->getCart()[$product->getId()]
+            ];
+            $totalCart += $item["quantity"] * $item["price"];
+            $items[] = $item;
+        }
+    
+        return $this->render('cart/index.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
+    }
+
+    #[Route('/update/{id}/{quantity}', name: 'cart_update', methods: ['POST'], requirements: ['id' => '\d+'])]
+    public function cart_update(int $id, int $quantity = 1): Response
+    {
+        $product = $this->repository->find($id);
+        if (!$product)
+            return new JsonResponse("[]", Response::HTTP_NOT_FOUND);
+        
+        $this->cart->update($id, $quantity);
+        
+        $data = [
+            "id"=> $product->getId(),
+            "name" => $product->getName(),
+            "price" => $product->getPrice(),
+            "photo" => $product->getPhoto(),
+            "quantity" => $this->cart->getCart()[$product->getId()],
+            "totalItems" => $this->cart->totalItems()
+            ];
+        return new JsonResponse($data, Response::HTTP_OK);
+        
+    }
+
+    #[Route('/delete/{id}', name: 'cart_delete')]
+    public function cart_delete(int $id): Response
+    {
+        $this->cart->delete($id);
+        $products = $this->repository->getFromCart($this->cart);
+        $totalCart = 0;
+        foreach($products as $product){
+            $totalCart += $this->cart->getCart()[$product->getId()] * $product->getPrice();
+        }
+        $data = ['total'=> $totalCart, 'totalItems' => $this->cart->totalItems()];
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+    
+    
+    
+
+
 }
