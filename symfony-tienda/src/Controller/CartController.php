@@ -79,7 +79,7 @@ class CartController extends AbstractController
             "price" => $product->getPrice(),
             "photo" => $product->getPhoto(),
             "quantity" => $this->cart->getCart()[$product->getId()],
-            "totalItems" => $this->cart->totalItems()
+            // "totalItems" => $this->cart->totalItems()
             ];
         return new JsonResponse($data, Response::HTTP_OK);
         
@@ -97,9 +97,7 @@ class CartController extends AbstractController
         $data = ['total'=> $totalCart, 'totalItems' => $this->cart->totalItems()];
         return new JsonResponse($data, Response::HTTP_OK);
     }
-    
-    
-    
 
+    
 
 }
