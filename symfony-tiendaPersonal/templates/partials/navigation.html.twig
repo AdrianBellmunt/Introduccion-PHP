@@ -1,0 +1,8 @@
+
+<a href="{{ path('index') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}}">Home</a>
+<a href="{{ path('about') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}}">About</a>
+<a href="{{ path('contact') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}}">Contact</a>
+<a href="{{ path('news') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}}">News</a>
+<a href="{{ path('shop') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'shop')  ? 'active': ''}}">Shop</a>
+
+
