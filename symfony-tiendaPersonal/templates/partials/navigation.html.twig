@@ -1,8 +1,33 @@
 
-<a href="{{ path('index') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}}">Home</a>
-<a href="{{ path('about') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}}">About</a>
-<a href="{{ path('contact') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}}">Contact</a>
-<a href="{{ path('news') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}}">News</a>
-<a href="{{ path('shop') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'shop')  ? 'active': ''}}">Shop</a>
-
+	
+						<!-- menu start -->
+						<nav class="main-menu">
+							<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li class="current-list-item"><a href="{{ path('index') }}" class="nav-item nav-link{{ (app.request.attributes.get('_route') == 'index')  ? 'active': ''}}">Home</a>
+								
+								</li>
+								<li><a href="{{ path('about') }}" class="nav-item nav-link  {{ (app.request.attributes.get('_route') == 'about')  ? 'active': ''}}">About</a></li>
+								
+									
+						        </li>
+								<li><a href="{{ path('contact') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'contact')  ? 'active': ''}}">Contact</a>
+									
+								</li>
+								<li><a href="{{ path('news') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'news')  ? 'active': ''}}">News</a></li>
+								<li><a href="{{ path('shop') }}" class="nav-item nav-link {{ (app.request.attributes.get('_route') == 'shop')  ? 'active': ''}}">Shop</a>
+									
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
 
