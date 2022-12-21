@@ -3,7 +3,8 @@
 {% block title %}Hello PageController!{% endblock %}
 
 {% block body %}
-	
+	{{ render(controller('App\\Controller\\PageController::teamTemplate')) }}
+
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
