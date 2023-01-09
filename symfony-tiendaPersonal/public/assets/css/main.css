@@ -2766,3 +2766,14 @@ table.order-details tbody td {
   background-color: rgb(188, 188, 192);
 
 }
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+

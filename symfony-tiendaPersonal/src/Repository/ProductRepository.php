@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Service\CartService;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -38,7 +39,18 @@ class ProductRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    public function getFromCart(CartService $cart): array
+    {
+        if (empty($cart->getCart())) {
+            return [];
+        }
+        $ids = implode(',', array_keys($cart->getCart()));
+    
+        return $this->createQueryBuilder('p')
+            ->andWhere("p.id in ($ids)")
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Product[] Returns an array of Product objects
 //     */
