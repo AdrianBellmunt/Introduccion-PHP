@@ -63,6 +63,7 @@ class CartController extends AbstractController
     
         return $this->render('cart/index.html.twig', ['items' => $items, 'totalCart' => $totalCart]);
     }
+    
 
     #[Route('/update/{id}/{quantity}', name: 'cart_update', methods: ['POST'], requirements: ['id' => '\d+'])]
     public function cart_update(int $id, int $quantity = 1): Response
