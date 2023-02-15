@@ -13,8 +13,6 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "mongoose": "^6.9.1",
-    "mongos": "^0.0.0",
-    "mongose": "^0.0.2-security",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
   },
